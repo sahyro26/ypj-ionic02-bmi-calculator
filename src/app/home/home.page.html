@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      BMI Calculator
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,36 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="medium">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <ion-card-header class="text-center-card">
+      <ion-card-title>We Care About Our Health</ion-card-title>
+      <ion-card-subtitle>Enter your details</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="center-card">
+      <img [src]="url" alt="BMI" style="width: 150px; height: 150px;" />
+    </ion-card-content>
+    <ion-card-content>
+      <p>Height (cm) : {{height}}</p>
+      <ion-item>
+        <span>50</span>
+        <ion-range min="50" max="250" [(ngModel)]="height"></ion-range>
+        <span>250</span>
+      </ion-item>
+
+      <p>Weight (kg) : {{weight}}</p>
+      <ion-item>
+        <span>50</span>
+        <ion-range min="10" max="200" [(ngModel)]="weight"></ion-range>
+        <span>200</span>
+      </ion-item>
+
+      <ion-button  class="center-card" (click)="calculateBMI()"> Calculate BMI </ion-button>
+      <p class="center-card" *ngIf="bmi !=0">BMI : {{bmi}}</p>
+      <p class="center-card" *ngIf="bmi !=0">You are {{indocator}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
